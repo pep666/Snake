@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     public void SpawnFruit()
     {
         //int randomPostion = UnityEngine.Random.Range(minSpawnPos, maxSpawnPos);
-        //Instantiate(Fruit, randomPostion, Quaternion.identity);
+        //Instantiate(Fruit, randomPostion, Quaternion.identity); AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     }
 
 }

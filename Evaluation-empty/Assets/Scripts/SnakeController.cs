@@ -11,6 +11,7 @@ public class SnakeController : MonoBehaviour
     Vector2 position;
     public GameObject TailPart;
     private int eatenFruits;
+    public GameObject GameOver;
 
 
     public void Start()
@@ -60,6 +61,18 @@ public class SnakeController : MonoBehaviour
 
     public void EatFruit()
     {
+
+    }
+
+    public void Die()
+    {
+        
+        if(isAlive == false)
+        {
+            Instantiate(GameOver);
+            Destroy(TailPart);
+            return;
+        }
 
     }
 
