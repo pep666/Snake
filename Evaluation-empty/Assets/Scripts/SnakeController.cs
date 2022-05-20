@@ -8,10 +8,15 @@ public class SnakeController : MonoBehaviour
     public float timeBeforeMove;
     Rigidbody2D emptySpace;
     Vector2 position;
+    public GameObject TailPart;
 
 
-    public void Awake()
+    public void Start()
     {
+        new GameObject("Tail");
+        var tail = GameObject.Find("Tail").transform.parent;
+        Instantiate(TailPart, new Vector3(1, 0, 0), Quaternion.identity);
+
         StartCoroutine(Move());
     }
 
@@ -20,9 +25,10 @@ public class SnakeController : MonoBehaviour
         emptySpace = gameObject.AddComponent<Rigidbody2D>();
         while (isAlive == true)
         {
+
             yield return new WaitForSeconds(timeBeforeMove);
             emptySpace.MovePosition(emptySpace.position + position * timeBeforeMove);
-            
+            //yield return new WaitForFixedUpdate(); mais ou?
         }
 
 
@@ -34,4 +40,6 @@ public class SnakeController : MonoBehaviour
         var position = new Vector2();
         var currentInput = Vector2Int.RoundToInt(position);
     }
+
+
 }
