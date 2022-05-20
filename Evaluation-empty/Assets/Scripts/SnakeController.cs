@@ -5,17 +5,19 @@ using System.Collections;
 public class SnakeController : MonoBehaviour
 {
     private bool isAlive = true;
+    private bool fruitEaten = true;
     public float timeBeforeMove;
     Rigidbody2D emptySpace;
     Vector2 position;
     public GameObject TailPart;
+    private int eatenFruits;
 
 
     public void Start()
     {
         new GameObject("Tail");
         var tail = GameObject.Find("Tail").transform.parent;
-        Instantiate(TailPart, new Vector3(1, 0, 0), Quaternion.identity);
+        //Instantiate(TailPart, new Vector3(1, 0, 0), Quaternion.identity);
 
         StartCoroutine(Move());
     }
@@ -29,6 +31,8 @@ public class SnakeController : MonoBehaviour
             yield return new WaitForSeconds(timeBeforeMove);
             emptySpace.MovePosition(emptySpace.position + position * timeBeforeMove);
             //yield return new WaitForFixedUpdate(); mais ou?
+            //AddTailPart();
+
         }
 
 
@@ -39,6 +43,24 @@ public class SnakeController : MonoBehaviour
     {
         var position = new Vector2();
         var currentInput = Vector2Int.RoundToInt(position);
+    }
+
+    public void AddTailPart(Vector2 newPartPosition)
+    {
+        if(fruitEaten == false)
+        {
+            return;
+        }
+        else
+        {
+            Instantiate(TailPart, newPartPosition, Quaternion.identity);
+            fruitEaten = false;
+        }
+    }
+
+    public void EatFruit()
+    {
+
     }
 
 

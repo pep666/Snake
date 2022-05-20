@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c121d38eae40019909ee1e29b0ec6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruit: {fileID: 6322971818608096111, guid: 12f3b63c5a4f7074e89beedbdcba1929, type: 3}
+  playZone: {fileID: 0}
+  Fruit: {fileID: 6322971818608096111, guid: 12f3b63c5a4f7074e89beedbdcba1929, type: 3}
